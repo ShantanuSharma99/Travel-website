@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Form Vlaidation</title>
+   <style>
+    body{
+        background-color: blue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+
+
+
+    }
+    #form-container
+    {
+       background-color: white;
+
+    padding: 50px;
+    text-align: center;
+    }
+    h2{
+        margin: 0px 0px 10px 0px;
+    }
+    input{
+        width: 200px;
+        margin: 10px 0px;
+        padding: 10px;
+    }
+    input[type="submit"]
+    {
+        width: 224px;
+        background-color: blue;
+        border: 0px;
+        color: white;
+    }
+    .error{
+        color:  red;
+        margin: 0px;
+        text-align: left;
+    }
+   </style>
+</head>
+<body>
+<div id="form-container">
+    <h2>Validation Form</h2>
+    <form action="" onsubmit="return validateForm()">
+     <input type="text" placeholder="Enter User Name" id="username" ><br>
+     <p id="userError" class="error"> </p>
+     <input type="password" placeholder="password"  id="password"><br>
+     <p id="passError" class="error"> </p>
+     <input type="email" placeholder="email"  id="email"><br>
+     <p id="emailError" class="error"> </p>
+     <input type="submit" >
+
+
+    </form>
+
+</div>
+<script>
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+     let flag = 1;
+    function validateForm()
+    {
+       if (username.trim() == "")
+       {
+       document.getElementById("userError").innerHTML = "User Name is empty";
+       flag = 0;
+       }
+       else if(username.trim().length < 3)
+       {
+        document.getElementById("userError").innerHTML = "User Name required min 3 char";
+        flag = 0;
+       }
+      
+
+       else{
+        document.getElementById("userError").innerHTML = "";
+        flag =1;
+       }
+
+      if(password.trim()=="")
+      {
+        document.getElementById("passError").innerHTML = "Password id empty";
+        flag = 0;
+      }
+      else{
+                document.getElementById("passError").innerHTML = "";
+                flag = 1;
+    
+      }
+
+      if (email.trim() == "")
+       {
+       document.getElementById("emailError").innerHTML = "Email is empty";
+       flag = 0;
+       }
+       else if(username.trim().length < 3)
+       {
+        document.getElementById("emailError").innerHTML = "User Name required min 3 char";
+        flag = 0;
+       }
+      
+
+       else{
+        document.getElementById("emailError").innerHTML = "";
+        flag =1;
+       }
+
+
+      if(flag)
+      {
+        return true;
+      }
+      else{
+        return false;
+      }
+    
+
+    }
+</script>
+</body>
+</html>
+
+<!-- validatiom is of 2 types
+server side 
+validation , client side validation -->
